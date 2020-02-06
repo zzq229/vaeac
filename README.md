@@ -19,11 +19,11 @@ Install prerequisites from `requirements.txt`.
 This code was tested on Linux (but it should work on Windows as well),
 Python 3.6.4 and PyTorch 1.0.
 
-To run experiments with CelebA download dataset into some directory,
+<!-- To run experiments with CelebA download dataset into some directory,
 unzip `img_align_celeba.zip` and set correct `celeba_root_dir`
 (i. e. which points to the root of the unzipped folder) in file `datasets.py`.
 
-## Experiments
+## Experiments -->
 
 ## Missing Feature Multiple Imputation
 
@@ -61,13 +61,23 @@ arguments are 2 1 1 1 10.
 Validation ratio is the ratio of objects which will be used for validation
 and the best model selection.
 
-So the minial working example of calling `impute.py` is
+Commands for training and evaluating features:
+
+```
+cd data
+python vif_prepare_data.py
+python ../impute.py --input_file train_test_split/feature_v1_train.tsv --output_file imputations/feature_v1_imputed.tsv   --one_hot_max_sizes 6 1 1 1 1 256 256 256 256 256 256 27 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256  22 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  34 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 256 256 256 256  11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  256 256 256  256 256 256 256 256 256 256 256 256 256 256 256 256 256 256  --num_imputations 5 --epochs 20 --validation_ratio 0.15
+python vif_evaluate_result.py feature_v1 6 1 1 1 1 256 256 256 256 256 256 27 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 22 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 34 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 256 256 256 256 11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256
+```
+
+<!-- So the minial working example of calling `impute.py` is
 ```
 python impute.py --input_file input_data.tsv --output_file data_imputed.tsv \
                  --one_hot_max_sizes 2 1 1 1 10 --num_imputations 25 \
                  --epochs 1000 --validation_ratio 0.15
-```
+``` -->
 
+<!-- 
 Validation IWAE samples is a number of latent samples
 for each object IWAE evaluation.
 
@@ -149,7 +159,7 @@ python inpaint.py --model_dir celeba_model --num_samples 3 \
                   --masks celeba_inpainting_masks --dataset celeba_test \
                   --out_dir celeba_inpaintings
 ```
-See `python inpaint.py --help` for more options.
+See `python inpaint.py --help` for more options. -->
 
 ## Citation
 
