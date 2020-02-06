@@ -66,7 +66,11 @@ Commands for training and evaluating features:
 ```
 cd data
 python vif_prepare_data.py
-python ../impute.py --input_file train_test_split/feature_v1_train.tsv --output_file imputations/feature_v1_imputed.tsv   --one_hot_max_sizes 6 1 1 1 1 256 256 256 256 256 256 27 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256  22 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  34 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 256 256 256 256  11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  256 256 256  256 256 256 256 256 256 256 256 256 256 256 256 256 256 256  --num_imputations 5 --epochs 20 --validation_ratio 0.15
+python ../impute.py --input_file train_test_split/feature_v1_train.tsv \
+                    --output_file imputations/feature_v1_imputed.tsv  \
+                    --one_hot_max_sizes 6 1 1 1 1 256 256 256 256 256 256 27 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256  22 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  34 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 256 256 256 256 11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  256 256 256  256 256 256 256 256 256 256 256 256 256 256 256 256 256 256  
+                    --num_imputations 5 --epochs 20 --validation_ratio 0.15
+
 python vif_evaluate_result.py feature_v1 6 1 1 1 1 256 256 256 256 256 256 27 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 22 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 34 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 256 256 256 256 11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256
 ```
 
