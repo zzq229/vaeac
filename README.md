@@ -63,15 +63,24 @@ and the best model selection.
 
 Commands for training and evaluating features:
 
+#### Train
 ```
-cd data
-python vif_prepare_data.py
-python ../impute.py --input_file train_test_split/feature_v1_train.tsv \
-                    --output_file imputations/feature_v1_imputed.tsv  \
-                    --one_hot_max_sizes 6 1 1 1 1 256 256 256 256 256 256 27 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256  22 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  34 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 256 256 256 256 11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16  256 256 256 16 256 256 256  256 256 256  256 256 256 256 256 256 256 256 256 256 256 256 256 256 256  
-                    --num_imputations 5 --epochs 20 --validation_ratio 0.15
+python vis_train.py --input_file data/train_test_split/forModel_new_groundtruth.tsv --epochs 150 --validation_ratio 0.1 --one_hot_max_sizes 1 1 1 11 1 13 0 96 7 1 1 1 1 1 2 77 7 1 1 1 1 1 4 39 7 1 1 1 1 1 6 25 7 1 1 1 1 1 8 41 7 1 1 1 1 1 10 40 7 1 1 1 1 1 12 33 7 1 1 1 1 1 14 21 7 1 1 1 1 1 16 31 7 1 1 1 1 1 18 29 7 1 1 1 1 1 20 29 7 1 1 1 1 1 22 33 7 1 1 1 1 1 24 43 7 1 1 1 1 1 26 43 7 1 1 1 1 1 28 53 7 1 1 1 1 1 30 37 7 1 1 1 1 1 32 43 7 1 1 1 1 1 34 47 7 1 1 1 1 1
+```
 
-python vif_evaluate_result.py feature_v1 6 1 1 1 1 256 256 256 256 256 256 27 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 22 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 34 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 256 256 256 256 11 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 16 256 256 256 16 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256
+#### Prepare data(adding mask to color fileds)
+```
+python vis_prepare_data.py --input_name forModel_new --seed 100 --prob 0.5
+```
+
+#### Impute 
+```
+python vis_impute.py --input_file data/train_test_split/forModel_new_train.tsv --output_file data/imputations/for_evaluate.tsv --one_hot_max_sizes 1 1 1 11 1 13 0 96 7 1 1 1 1 1 2 77 7 1 1 1 1 1 4 39 7 1 1 1 1 1 6 25 7 1 1 1 1 1 8 41 7 1 1 1 1 1 10 40 7 1 1 1 1 1 12 33 7 1 1 1 1 1 14 21 7 1 1 1 1 1 16 31 7 1 1 1 1 1 18 29 7 1 1 1 1 1 20 29 7 1 1 1 1 1 22 33 7 1 1 1 1 1 24 43 7 1 1 1 1 1 26 43 7 1 1 1 1 1 28 53 7 1 1 1 1 1 30 37 7 1 1 1 1 1 32 43 7 1 1 1 1 1 34 47 7 1 1 1 1 1
+```
+
+#### Evaluate
+```
+python vis_evaluate_results.py --groundtruth data/train_test_split/forModel_new_groundtruth.tsv --input_file data/train_test_split/forModel_new_train.tsv --imputed_file data/train_test_split/for_evaluate.tsv --one_hot_max_sizes 1 1 1 11 1 13 0 96 7 1 1 1 1 1 2 77 7 1 1 1 1 1 4 39 7 1 1 1 1 1 6 25 7 1 1 1 1 1 8 41 7 1 1 1 1 1 10 40 7 1 1 1 1 1 12 33 7 1 1 1 1 1 14 21 7 1 1 1 1 1 16 31 7 1 1 1 1 1 18 29 7 1 1 1 1 1 20 29 7 1 1 1 1 1 22 33 7 1 1 1 1 1 24 43 7 1 1 1 1 1 26 43 7 1 1 1 1 1 28 53 7 1 1 1 1 1 30 37 7 1 1 1 1 1 32 43 7 1 1 1 1 1 34 47 7 1 1 1 1 1
 ```
 
 <!-- So the minial working example of calling `impute.py` is
