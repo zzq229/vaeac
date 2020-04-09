@@ -196,5 +196,5 @@ for epoch in range(args.epochs):
         if verbose:
             iterator.set_description('Train VLB: %g' % avg_vlb)
 
-torch.save(best_state, 'state_full')
+torch.save(best_state, 'new_state_full')
 

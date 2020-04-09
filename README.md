@@ -61,7 +61,30 @@ arguments are 2 1 1 1 10.
 Validation ratio is the ratio of objects which will be used for validation
 and the best model selection.
 
-Commands for training and evaluating features:
+
+## Commands for scripts 
+
+#### Auto-imputations
+```
+python auto_imputation_script.py --field {} (To make the whole field to be missing data, range: bg, 0, 1, ... 17)
+```
+
+Example: 
+```
+python auto_imputation_script.py --field bg 0 1 2 
+```
+
+The results can be found in imputations_vis/
+
+#### Auto-evaluate
+
+```
+python auto_evaluate_script.py
+```
+
+
+
+## Commands for training and evaluating features:
 
 #### Train
 ```
@@ -80,7 +103,7 @@ python vis_impute.py --input_file data/train_test_split/forModel_new_train.tsv -
 
 #### Evaluate
 ```
-python vis_evaluate_results.py --groundtruth data/train_test_split/forModel_new_groundtruth.tsv --input_file data/train_test_split/forModel_new_train.tsv --imputed_file data/train_test_split/for_evaluate.tsv --one_hot_max_sizes 1 1 1 11 1 13 0 96 7 1 1 1 1 1 2 77 7 1 1 1 1 1 4 39 7 1 1 1 1 1 6 25 7 1 1 1 1 1 8 41 7 1 1 1 1 1 10 40 7 1 1 1 1 1 12 33 7 1 1 1 1 1 14 21 7 1 1 1 1 1 16 31 7 1 1 1 1 1 18 29 7 1 1 1 1 1 20 29 7 1 1 1 1 1 22 33 7 1 1 1 1 1 24 43 7 1 1 1 1 1 26 43 7 1 1 1 1 1 28 53 7 1 1 1 1 1 30 37 7 1 1 1 1 1 32 43 7 1 1 1 1 1 34 47 7 1 1 1 1 1
+python vis_evaluate_results.py --groundtruth data/train_test_split/forModel_new_groundtruth.tsv --input_file data/train_test_split/forModel_new_train.tsv --imputed_file data/imputations/for_evaluate.tsv --one_hot_max_sizes 1 1 1 11 1 13 0 96 7 1 1 1 1 1 2 77 7 1 1 1 1 1 4 39 7 1 1 1 1 1 6 25 7 1 1 1 1 1 8 41 7 1 1 1 1 1 10 40 7 1 1 1 1 1 12 33 7 1 1 1 1 1 14 21 7 1 1 1 1 1 16 31 7 1 1 1 1 1 18 29 7 1 1 1 1 1 20 29 7 1 1 1 1 1 22 33 7 1 1 1 1 1 24 43 7 1 1 1 1 1 26 43 7 1 1 1 1 1 28 53 7 1 1 1 1 1 30 37 7 1 1 1 1 1 32 43 7 1 1 1 1 1 34 47 7 1 1 1 1 1
 ```
 
 <!-- So the minial working example of calling `impute.py` is

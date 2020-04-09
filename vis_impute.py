@@ -96,8 +96,8 @@ batch_size = networks['batch_size']
 mask_generator = networks['mask_generator']
 vlb_scale_factor = networks.get('vlb_scale_factor', 1)
 
-# checkpoint = torch.load('state_full')
-checkpoint = torch.load('29_3_150_0.1_denormal')
+checkpoint = torch.load('new_state_full')
+# checkpoint = torch.load('1_4_150_0.1_HSV')
 
 model.load_state_dict(checkpoint['model_state_dict'])
 

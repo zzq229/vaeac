@@ -218,6 +218,10 @@ class CategoricalToOneHotLayer(Module):
                 # one-hot encoding
                 n = input.shape[0]
                 out_col = torch.zeros(n, size, device=input.device)
+
+                # print (torch.arange(n).long())
+                # print (cat_idx.long())
+
                 out_col[torch.arange(n).long(), cat_idx.long()] = 1
 
                 # set NaNs to be zero vectors
