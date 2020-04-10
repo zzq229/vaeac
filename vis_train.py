@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 from copy import deepcopy
 from importlib import import_module
 from math import ceil
+import warnings
 from os.path import exists, join
 from sys import stderr
 
@@ -15,6 +16,8 @@ from imputation_networks import get_imputation_networks
 from train_utils import extend_batch, get_validation_iwae
 from VAEAC import VAEAC
 
+
+warnings.filterwarnings("ignore", category=UserWarning)
 
 class ArgParseRange:
     """
